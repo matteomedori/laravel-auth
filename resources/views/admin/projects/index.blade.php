@@ -3,6 +3,20 @@
 @section('content')
     <h2 class="my-3">Lista dei progetti</h2>
     <a href="{{ route('admin.projects.create') }}" class="btn btn-primary btn-sm">Aggiungi un nuovo progetto</a>
+
+    @if (session('messages'))
+        <div class="toast show position-fixed bottom-0 end-0 p-1 align-items-center text-bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    {{ session('messages') }}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
+
     <table class="table table-striped mt-2">
         <thead>
             <tr>
@@ -10,6 +24,9 @@
                 <th scope="col">Descrizione</th>
                 <th scope="col">Linguaggi</th>
                 <th scope="col">Frameworks</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>

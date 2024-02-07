@@ -38,6 +38,8 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             <input type="submit" value="Aggiungi" class="btn btn-primary">
+            <a href="{{ route('admin.projects.index') }}" class="btn btn-info text-light">Torna alla lista
+                progetti</a>
         </form>
     </div>
 @endsection
