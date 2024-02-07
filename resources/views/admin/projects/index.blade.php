@@ -23,7 +23,34 @@
                     </td>
                     <td><a href="{{ route('admin.projects.show', $project) }}" class="btn btn-secondary btn-sm">mostra</a>
                     </td>
-                    <td><a href="" class="btn btn-danger btn-sm">cancella</a></td>
+                    <td>
+                        <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="button" value="cancella" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#modal{{ $loop->iteration }}">
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal{{ $loop->iteration }}" tabindex="-1"
+                                aria-labelledby="modalLabel{{ $loop->iteration }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="modalLabel{{ $loop->iteration }}">Sei sicuro
+                                                di voler cancellare
+                                                il progetto '{{ $project->title }}'?</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">No</button>
+                                            <input type="submit" value="Si" class="btn btn-primary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
