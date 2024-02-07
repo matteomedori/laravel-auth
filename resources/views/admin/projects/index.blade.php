@@ -4,6 +4,7 @@
     <h2 class="my-3">Lista dei progetti</h2>
     <a href="{{ route('admin.projects.create') }}" class="btn btn-primary btn-sm">Aggiungi un nuovo progetto</a>
 
+    {{-- show toast if exist a message --}}
     @if (session('messages'))
         <div class="toast show position-fixed bottom-0 end-0 p-1 align-items-center text-bg-success border-0" role="alert"
             aria-live="assertive" aria-atomic="true">
@@ -16,7 +17,9 @@
             </div>
         </div>
     @endif
+    {{-- /show toast if exist a message --}}
 
+    {{-- table to show projects --}}
     <table class="table table-striped mt-2">
         <thead>
             <tr>
@@ -72,4 +75,5 @@
             @endforeach
         </tbody>
     </table>
+    {{-- /table to show projects --}}
 @endsection
